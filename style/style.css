@@ -130,7 +130,7 @@ table {
 
 .bookmarks_list {
     margin-top: 35px;
-    width: 440px;
+    width: 400px;
 }
 
 .bookmarks_list ul {
@@ -165,7 +165,7 @@ table {
 }
 
 .react-autosuggest__input {
-    width: 400px;
+    width: 360px;
     height: 30px;
     padding: 10px 20px;
     font-family: Helvetica, sans-serif;
@@ -187,7 +187,7 @@ table {
 .react-autosuggest__suggestions-container {
     position: absolute;
     top: 51px;
-    width: 440px;
+    width: 400px;
     margin: 0;
     padding: 0;
     list-style-type: none;

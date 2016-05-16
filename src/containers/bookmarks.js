@@ -33,7 +33,7 @@ export default class Bookmarks extends Component {
             let boundBookmarkClick = this.deleteBookmark.bind(this, bookmark._id);
             let boundLinkClick = this.displayBookmark.bind(this, bookmark);
             return(
-                <li key={bookmark._id}><a href="#" onClick={boundLinkClick}>{bookmark.name}</a> <button id={bookmark._id} className="btn btn-red pull-right" onClick={boundBookmarkClick}>X</button></li>
+                <li key={bookmark._id}><a href="javascript:void(0)" onClick={boundLinkClick}>{bookmark.name}</a> <button id={bookmark._id} className="btn btn-red pull-right" onClick={boundBookmarkClick}>X</button></li>
             )
         });
     }
