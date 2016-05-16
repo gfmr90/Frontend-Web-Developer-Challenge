@@ -1,0 +1,10 @@
+<<<<<<< HEAD
+node_modules
+npm-debug.log
+.DS_Store
+dist
+=======
+examples/**/*-bundle.js
+node_modules/
+.idea/
+>>>>>>> 5661e9d80fb11ab630a57ab4dd4913b481ca3951
