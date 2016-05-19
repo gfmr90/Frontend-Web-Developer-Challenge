@@ -9,10 +9,18 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import ReduxPromise from 'redux-promise';
 import {persistStore, autoRehydrate} from 'redux-persist'
+import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+import { syncHistoryWithStore } from 'react-router-redux'
 
-import App from './components/app';
 import reducers from './reducers';
 import ReduxThunk from 'redux-thunk'
+import BookMarks from './containers/bookmarks'
+import Search from './containers/search_bar'
+import { SearchMeals } from './components/search_meals'
+import Foo from './components/Foo'
+import Bar from './components/Bar'
+import Home from './components/Home'
+import App from './containers/app'
 
 const store = createStore(
     reducers,
@@ -24,8 +32,15 @@ const store = createStore(
 );
 persistStore(store);
 
+const history = syncHistoryWithStore(browserHistory, store);
+
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <Router history={history}>
+            <Route path="/" component={App}>
+                <IndexRoute component={Search}/>
+                <Route path="bookmarks" component={BookMarks}/>
+            </Route>
+        </Router>
     </Provider>
     , document.getElementById('root'));

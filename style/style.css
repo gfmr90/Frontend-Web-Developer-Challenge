@@ -1,13 +1,15 @@
-.app-container {
-    display: flex;
-    /* padding: top right bottom left */
-    /* padding: top-bottom right-left */
-    padding: 100px 50px;
+/* ---------------------------------------------- /*
+ * General
+/* ---------------------------------------------- */
+
+button {
+    cursor: pointer;
 }
 
 body {
     height: 100%;
     width: 100%;
+    margin: 0;
     font-family: 'Lato', sans-serif;
 }
 
@@ -288,4 +290,190 @@ table {
 
 .btn-modal {
     color: rgba(0, 0, 0, 87) !important;
+}
+
+/* ---------------------------------------------- /*
+ * Hamburger Menu
+/* ---------------------------------------------- */
+
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+    position: fixed;
+    width: 36px;
+    height: 30px;
+    left: 36px;
+    top: 36px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+    background: #373a47;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+    height: 24px;
+    width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+    background: #bdc3c7;
+}
+
+/* General sidebar styles */
+.bm-menu {
+    background: #373a47;
+    padding: 2.5em 1.5em 0;
+    font-size: 1.15em;
+}
+
+.bm-menu a {
+    color: #fff;
+}
+
+.bm-menu a:hover,
+.bm-menu a:focus {
+    color: #288feb;
+}
+
+.bm-menu a.active {
+    color: #288feb;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+    fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+    color: #b8b7ad;
+}
+
+.bm-item-list a {
+    /* Padding: top right bottom left */
+    padding: 20px 0 15px 10px;
+}
+
+.bm-item-list span {
+    margin-left: 10px;
+    font-weight: 700;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.style-for-link {
+    display: block;
+    outline: none;
+}
+/* ---------------------------------------------- /*
+ * Flexbox Grid System
+ *
+ * Basic Grid Styles
+/* ---------------------------------------------- */
+
+.Grid {
+    display: flex;
+}
+
+.Grid-cell {
+    flex: 1;
+}
+
+/* ---------------------------------------------- /*
+ * Grid Style Modifiers
+/* ---------------------------------------------- */
+
+/* With gutters */
+.Grid--gutters {
+    margin: -1em 0 0 -1em;
+}
+.Grid--gutters > .Grid-cell {
+    padding: 1em 0 0 1em;
+}
+
+/* Alignment per row */
+.Grid--top {
+    align-items: flex-start;
+}
+.Grid--bottom {
+    align-items: flex-end;
+}
+.Grid--center {
+    align-items: center;
+}
+
+/* Alignment per cell */
+.Grid-cell--top {
+    align-self: flex-start;
+}
+.Grid-cell--bottom {
+    align-self: flex-end;
+}
+.Grid-cell--center {
+    align-self: center;
+}
+
+/* ---------------------------------------------- /*
+ * Responsive Modifiers (a mobile-first approach)
+/* ---------------------------------------------- */
+
+/* Base classes for all media */
+.Grid--fit > .Grid-cell {
+    flex: 1;
+}
+.Grid--full > .Grid-cell {
+    flex: 0 0 100%;
+}
+.Grid--1of2 > .Grid-cell {
+    flex: 0 0 50%
+}
+.Grid--1of3 > .Grid-cell {
+    flex: 0 0 33.3333%
+}
+.Grid--1of4 > .Grid-cell {
+    flex: 0 0 25%
+}
+
+/* Small to medium screens */
+@media (min-width: 24em) {
+    .small-Grid--fit > .Grid-cell {
+        flex: 1;
+    }
+    .small-Grid--full > .Grid-cell {
+        flex: 0 0 100%;
+    }
+    .small-Grid--1of2 > .Grid-cell {
+        flex: 0 0 50%
+    }
+    .small-Grid--1of3 > .Grid-cell {
+        flex: 0 0 33.3333%
+    }
+    .small-Grid--1of4 > .Grid-cell {
+        flex: 0 0 25%
+    }
+}
+
+/* Large screens */
+@media (min-width: 48em) {
+    .large-Grid--fit > .Grid-cell {
+        flex: 1;
+    }
+    .large-Grid--full > .Grid-cell {
+        flex: 0 0 100%;
+    }
+    .large-Grid--1of2 > .Grid-cell {
+        flex: 0 0 50%
+    }
+    .large-Grid--1of3 > .Grid-cell {
+        flex: 0 0 33.3333%
+    }
+    .large-Grid--1of4 > .Grid-cell {
+        flex: 0 0 25%
+    }
 }
