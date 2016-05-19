@@ -8,6 +8,7 @@ import Autosuggest from 'react-autosuggest';
 import { clearSuggestions, updateInputValue, loadSuggestions } from '../actions/search_bar';
 import { displayFoodDetails } from '../actions/food_display';
 import _ from 'lodash';
+import FoodDisplay from '../containers/food_display'
 
 class FoodSuggestions extends Component {
     constructor() {
@@ -51,16 +52,27 @@ class FoodSuggestions extends Component {
         };
         const status = (isLoading ? 'Loading...' : 'Type to load suggestions');
 
+        // return (
+        //     <div className="container">
+        //         <div className="Aligner">
+        //             <div className="Aligner-item Aligner-item--fixed">
+        //                 <h1>Is this center?</h1>
+        //             </div>
+        //         </div>
+        //     </div>
+        // );
+
         return (
-            <div className="food_suggestions">
+            <div className="container">
                 <Autosuggest suggestions={uSuggestions}
                              onSuggestionsUpdateRequested={onSuggestionsUpdateRequested}
                              getSuggestionValue={getSuggestionValue}
                              renderSuggestion={renderSuggestion}
-                             inputProps={inputProps} />
+                             inputProps={inputProps}/>
                 <div className="status">
                     <strong>Status:</strong> {status}
                 </div>
+                <FoodDisplay />
             </div>
         );
     }

@@ -12,29 +12,6 @@ import {bindActionCreators} from 'redux';
 import { initEnvironment } from '../actions/environment';
 import { Router, Route, Link, browserHistory, IndexLink } from 'react-router'
 
-// export default class App extends Component {
-//     render() {
-//         const PushMenu = BurgerMenu.push;
-//         return (
-//             <div id="outer-container">
-//                 <PushMenu pageWrapId={ "page-wrap" } outerContainerId={ "outer-container" }>
-//                     <a id="home" className="menu-item" href="/"><i className="fa fa-search"></i><span>Search Meals</span></a>
-//                     <a id="about" className="menu-item" href="/about"><i className="fa fa-bookmark-o"></i><span>Saved Meals</span></a>
-//                 </PushMenu>
-//                 <main id="page-wrap">
-//                     <div className="food_list">
-//                         <FoodSuggestions />
-//                         <Bookmarks />
-//                     </div>
-//                     <div className="food_display">
-//                         <FoodDisplay />
-//                     </div>
-//                 </main>
-//             </div>
-//         );
-//     }
-// }
-
 class App extends Component {
     componentDidMount() {
         const { initEnvironment } = this.props;
