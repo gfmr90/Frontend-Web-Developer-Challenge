@@ -1,53 +1,85 @@
 /**
- * Created by Garie on 9/5/2016.
+ * Created by Garie on 11/5/2016.
  */
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators} from 'redux';
-import { fetchFood } from '../actions/index';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import Autosuggest from 'react-autosuggest';
+import { clearSuggestions, updateInputValue, loadSuggestions } from '../actions/search_bar';
+import { displayFoodDetails } from '../actions/food_display';
+import _ from 'lodash';
 
-export default class SearchBar extends Component {
-    constructor(props) {
-        super(props);
+class FoodSuggestions extends Component {
+    constructor() {
+        super();
 
-        this.state = { term: '' };
-
-        //Take the existing function, bind it to this and replace the existing function with it
-        this.onInputChange = this.onInputChange.bind(this);
-        this.onFormSubmit = this.onFormSubmit.bind(this);
+        this.onChange = this.onChange.bind(this);
+        this.getSuggestionValue = this.getSuggestionValue.bind(this);
+        this.onSuggestionsUpdateRequested = this.onSuggestionsUpdateRequested.bind(this);
+    }
+    getSuggestionValue(suggestion) { // when suggestion selected, this function tells
+        this.props.displayFoodDetails(suggestion);
+        return suggestion.name;                 // what should be the value of the input
     }
 
-    onInputChange(event) {
-        this.setState({term: event.target.value});
-    }
-
-    onFormSubmit(event) {
-        event.preventDefault();
-
-        // We need to go and fetch food data
-        this.props.fetchFood(this.state.term);
-        this.setState({ term: '' });
-    }
-
-    render() {
+    renderSuggestion(suggestion) {
         return (
-            <form onSubmit={this.onFormSubmit} className="input-group">
-                <input
-                    placeholder="Query for the food yo"
-                    className="form-control"
-                    value={this.state.term}
-                    onChange={this.onInputChange}
-                />
-                <span className="input-group-btn">
-                    <button type="submit" className="btn btn-secondary">Submit</button>
-                </span>
-            </form>
+            <span>{suggestion.name}</span>
+        );
+    }
+    onChange(event, { newValue }) {
+        this.props.updateInputValue(newValue);
+
+        const value = newValue.trim();
+
+        if (value === '') {
+            this.props.clearSuggestions();
+        }
+    }
+    onSuggestionsUpdateRequested({ value }) {
+        this.props.loadSuggestions(value);
+    }
+    render() {
+        const { value, suggestions, isLoading } = this.props;
+        //Underscore to filter out duplicate suggestion objects
+        const uSuggestions = _.uniqBy(suggestions, (s) => { return s.name; });
+        const { onChange, getSuggestionValue, onSuggestionsUpdateRequested, renderSuggestion } = this;
+        const inputProps = {
+            placeholder: "Type 'c'",
+            value,
+            onChange: onChange
+        };
+        const status = (isLoading ? 'Loading...' : 'Type to load suggestions');
+
+        return (
+            <div className="food_suggestions">
+                <Autosuggest suggestions={uSuggestions}
+                             onSuggestionsUpdateRequested={onSuggestionsUpdateRequested}
+                             getSuggestionValue={getSuggestionValue}
+                             renderSuggestion={renderSuggestion}
+                             inputProps={inputProps} />
+                <div className="status">
+                    <strong>Status:</strong> {status}
+                </div>
+            </div>
         );
     }
 }
 
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ fetchFood }, dispatch);
+function mapStateToProps(state) {
+    const { value, suggestions, isLoading } = state.searchBar;
+
+    return {
+        value,
+        suggestions,
+        isLoading
+    };
 }
 
-export default connect(null, mapDispatchToProps)(SearchBar);
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({updateInputValue, clearSuggestions, loadSuggestions, displayFoodDetails}, dispatch);
+}
+
+//Promote FoodList from a component to a container -
+// it needs to know about this new dispatch method, selectBook. mkae it available as a prop.
+export default connect(mapStateToProps, mapDispatchToProps)(FoodSuggestions);

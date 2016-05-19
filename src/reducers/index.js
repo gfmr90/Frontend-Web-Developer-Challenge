@@ -2,14 +2,14 @@
  * Created by Garie on 9/5/2016.
  */
 import { combineReducers } from 'redux';
-import FoodieReducer from './reducerSuggest';
+import searchBar from './search_bar';
 import selectedFood from './food_display';
-import Bookmarks from './bookmarks';
+import bookmarks from './bookmarks';
 
 const rootReducer = combineReducers({
-    foodie: FoodieReducer,
-    selectedFood: selectedFood,
-    bookmarks: Bookmarks
+    searchBar,
+    selectedFood,
+    bookmarks
 });
 
 export default rootReducer;

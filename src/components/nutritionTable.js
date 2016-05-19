@@ -37,6 +37,5 @@ export default class NutritionTable extends Component {
 
 let processNutrientName = (name) => {
     var nutrientName = name.split("_");
-    var processedName;
     return nutrientName.length > 1 ? _.upperFirst(nutrientName.join(' ')) : _.capitalize(nutrientName[0])
 };

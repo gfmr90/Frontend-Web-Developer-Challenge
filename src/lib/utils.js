@@ -2,8 +2,6 @@
  * Created by Garie on 14/5/2016.
  */
 import axios from 'axios';
-import superagent from 'superagent';
-
 const ROOT_URL = `https://test.holmusk.com/food/search`;
 
 export default function getSuggestions(value) {

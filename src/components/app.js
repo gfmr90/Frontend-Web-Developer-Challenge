@@ -3,7 +3,7 @@
  */
 import React, { Component } from 'react';
 
-import FoodSuggestions from '../containers/food_suggestions'
+import FoodSuggestions from '../containers/search_bar'
 import FoodDisplay from '../containers/food_display'
 import Bookmarks from '../containers/bookmarks'
 
