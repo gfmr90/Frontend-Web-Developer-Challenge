@@ -27,23 +27,14 @@ body {
     float: left;
 }
 
+.title {
+    width: 80%;
+}
+
 a {
     text-decoration: none;
     color: #0275d8;
     font-weight: 700;
-}
-
-.food_display {
-    width: 65%;
-    display: inline-block;
-    padding: 0 25px;
-    border-left: 1px solid #ddd;
-}
-
-.food_list {
-    width: 35%;
-    display: inline-block;
-    padding: 0 25px;
 }
 
 .portionSelect {
@@ -54,6 +45,10 @@ table {
     margin-top: 20px;
     margin-bottom: 35px;
 }
+
+/* ---------------------------------------------- /*
+ * Buttons
+/* ---------------------------------------------- */
 
 .btn-close-modal {
     font-weight: 700;
@@ -128,9 +123,17 @@ table {
     margin-right: 15px;
 }
 
+/* ---------------------------------------------- /*
+ * Bookmarks
+/* ---------------------------------------------- */
+
 .bookmarks_list {
-    margin-top: 35px;
-    width: 400px;
+    width: 90%;
+}
+
+.bookmarks a {
+    display: inline-block;
+    width: 85%;
 }
 
 .bookmarks_list ul {
@@ -140,7 +143,7 @@ table {
 }
 
 .bookmarks_list ul li {
-    padding: 16px 6px;
+    padding: 25px 6px;
     border: 1px solid #ddd;
     background-color: white;
     margin-bottom: -1px;
@@ -160,19 +163,35 @@ table {
     margin-top: 15px;
 }
 
+/* ---------------------------------------------- /*
+ * React-Autosuggest Component
+/* ---------------------------------------------- */
+
 .react-autosuggest__container {
     position: relative;
 }
 
 .react-autosuggest__input {
-    width: 360px;
+    width: 280px;
     height: 30px;
     padding: 10px 20px;
-    font-family: Helvetica, sans-serif;
-    font-weight: 300;
     font-size: 16px;
-    border: 1px solid #aaa;
+    border: 1px solid #999;
     border-radius: 4px;
+}
+
+@media (min-width: 384px) {
+
+}
+
+@media (min-width: 576px) {
+
+}
+
+@media (min-width: 768px) {
+    .react-autosuggest__input {
+        width: 360px;
+    }
 }
 
 .react-autosuggest__input:focus {
@@ -187,7 +206,7 @@ table {
 .react-autosuggest__suggestions-container {
     position: absolute;
     top: 51px;
-    width: 400px;
+    width: 320px;
     margin: 0;
     padding: 0;
     list-style-type: none;
@@ -201,6 +220,12 @@ table {
     z-index: 2;
 }
 
+@media (min-width: 768px) {
+    .react-autosuggest__suggestions-container {
+        width: 400px;
+    }
+}
+
 .react-autosuggest__suggestion {
     cursor: pointer;
     padding: 10px 20px;
@@ -209,6 +234,10 @@ table {
 .react-autosuggest__suggestion--focused {
     background-color: #ddd;
 }
+
+/* ---------------------------------------------- /*
+ * Dropdown
+/* ---------------------------------------------- */
 
 .dropbtn {
     background-color: #4CAF50;
@@ -252,6 +281,10 @@ table {
     display: block;
 }
 
+/* ---------------------------------------------- /*
+ * ReactModal Component Styles
+/* ---------------------------------------------- */
+
 .ReactModal__Overlay {
     -webkit-perspective: 600;
     perspective: 600;
@@ -264,7 +297,7 @@ table {
 }
 
 .ReactModal__Content {
-    min-width: 600px;
+    min-width: 250px;
     min-height: 170px;
     -webkit-transform: scale(0.5) rotateX(-30deg);
     transform: scale(0.5) rotateX(-30deg);
@@ -300,8 +333,8 @@ table {
     position: fixed;
     width: 36px;
     height: 30px;
-    left: 36px;
-    top: 36px;
+    left: 26px;
+    top: 30px;
 }
 
 /* Color/shape of burger icon bars */
@@ -313,6 +346,12 @@ table {
 .bm-cross-button {
     height: 24px;
     width: 24px;
+}
+
+@media (min-width: 768px) {
+    .bm-cross-button{
+        display: none;
+    }
 }
 
 /* Color/shape of close button cross */
@@ -394,9 +433,14 @@ table {
 }
 
 .Site-content {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0 auto;
+    -ms-flex: 1 0 auto;
     flex: 1 0 auto; /* 2 */
-    padding: 1.5em 1.5em 0;
+    /* Padding: top right bottom left */
+    padding: 90px 24px 0 15px;
     width: 100%;
+    height: 100%;
 }
 
 .Site-content--full {

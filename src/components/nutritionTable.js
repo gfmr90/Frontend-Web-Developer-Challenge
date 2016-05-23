@@ -20,7 +20,7 @@ export default class NutritionTable extends Component {
     }
     render() {
         return(
-            <table style={{width: "40%"}}>
+            <table style={{width: "60%"}}>
                 <thead>
                 <tr>
                     <th>Nutrition</th>

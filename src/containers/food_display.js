@@ -39,12 +39,13 @@ class FoodDisplay extends Component {
     renderButton() {
         let selectedFoodId = this.props.selectedFood._id;
         let bookmarkExist = selectedFoodId ? _.some(this.props.bookmarks, function(obj) { return obj._id == selectedFoodId }) : false;
-        return bookmarkExist ? <button className="btn btn-green disabled">Bookmark</button> : <button className="btn btn-green" onClick={this.bookmark}>Bookmark</button>
+        return bookmarkExist ? <button className="btn btn-green disabled">Saved!</button>
+            : <button className="btn btn-green" onClick={this.bookmark}>Bookmark</button>
     }
     render() {
         return (
-            <div>
-                <h1>{this.props.selectedFood.name}</h1>
+            <div className="food_display">
+                <h1 className="title">{this.props.selectedFood.name}</h1>
                 {this.props.selectedFood.name ?
                     <div>
                         <Select

@@ -52,27 +52,25 @@ class FoodSuggestions extends Component {
         };
         const status = (isLoading ? 'Loading...' : 'Type to load suggestions');
 
-        // return (
-        //     <div className="container">
-        //         <div className="Aligner">
-        //             <div className="Aligner-item Aligner-item--fixed">
-        //                 <h1>Is this center?</h1>
-        //             </div>
-        //         </div>
-        //     </div>
-        // );
-
         return (
             <div className="container">
-                <Autosuggest suggestions={uSuggestions}
-                             onSuggestionsUpdateRequested={onSuggestionsUpdateRequested}
-                             getSuggestionValue={getSuggestionValue}
-                             renderSuggestion={renderSuggestion}
-                             inputProps={inputProps}/>
-                <div className="status">
-                    <strong>Status:</strong> {status}
+                <div className="Grid Grid--gutters Grid--full large-Grid--fit">
+                    <div className="Grid-cell">
+                        <Autosuggest suggestions={uSuggestions}
+                                     onSuggestionsUpdateRequested={onSuggestionsUpdateRequested}
+                                     getSuggestionValue={getSuggestionValue}
+                                     renderSuggestion={renderSuggestion}
+                                     inputProps={inputProps}/>
+                        <div className="status">
+                            <strong>Status:</strong> {status}
+                        </div>
+                    </div>
                 </div>
-                <FoodDisplay />
+                <div className="Grid Grid--gutters Grid--full large-Grid--fit">
+                    <div className="Grid-cell">
+                        <FoodDisplay />
+                    </div>
+                </div>
             </div>
         );
     }

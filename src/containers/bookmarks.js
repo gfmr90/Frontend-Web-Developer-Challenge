@@ -8,6 +8,7 @@ import {bindActionCreators} from 'redux';
 import {deleteSelectedBookmark, deleteAllBookmarks} from '../actions/bookmarks';
 import {displayFoodDetails} from '../actions/food_display';
 import Modal from 'react-modal';
+import FoodDisplay from '../containers/food_display'
 
 export default class Bookmarks extends Component {
     constructor(props) {
@@ -57,7 +58,7 @@ export default class Bookmarks extends Component {
         const customStyles = {
             content : {
                 top                   : '40%',
-                left                  : '50%',
+                left                  : '45%',
                 right                 : 'auto',
                 bottom                : 'auto',
                 marginRight           : '-50%',
@@ -66,31 +67,42 @@ export default class Bookmarks extends Component {
             }
         };
         return(
-            <div className="bookmarks_list">
-                <div className="bookmark-header">
-                    <h2 className="pull-left">Bookmarks</h2>
-                    <button className="btn btn-default btn-delete-all" onClick={this.openModal}>Delete All Bookmarks</button>
-                </div>
-                <ul className="bookmarks">
-                    {this.renderList()}
-                </ul>
-                <Modal
-                    isOpen={this.state.modalIsOpen}
-                    onAfterOpen={this.afterOpenModal}
-                    onRequestClose={this.closeModal}
-                    style={customStyles} >
-                    <button onClick={this.closeModal} className="pull-right btn-transparent btn-close-modal">X</button>
-                    <h1 className="text-center">Delete All Bookmarks?</h1>
-                    <div className="text-center">
-                        <a href="#" className="btn-modal" onClick={this.deleteAllBookmarks}>
-                            <h3 className="text-inline">Yes</h3>
-                        </a>
-                        <h3 className="text-inline">&nbsp;/&nbsp;</h3>
-                        <a href="#" className="btn-modal" onClick={this.closeModal}>
-                            <h3 className="text-inline">No</h3>
-                        </a>
+            <div className="container">
+                <div className="Grid Grid--gutters Grid--full large-Grid--fit">
+                    <div className="Grid-cell">
+                        <FoodDisplay />
                     </div>
-                </Modal>
+                </div>
+                <div className="Grid Grid--gutters Grid--full large-Grid--fit">
+                    <div className="Grid-cell">
+                        <div className="bookmarks_list">
+                            <div className="bookmark-header">
+                                <h2 className="pull-left">Bookmarks</h2>
+                                <button className="btn btn-default btn-delete-all" onClick={this.openModal}>Delete All Bookmarks</button>
+                            </div>
+                            <ul className="bookmarks">
+                                {this.renderList()}
+                            </ul>
+                            <Modal
+                                isOpen={this.state.modalIsOpen}
+                                onAfterOpen={this.afterOpenModal}
+                                onRequestClose={this.closeModal}
+                                style={customStyles} >
+                                <button onClick={this.closeModal} className="pull-right btn-transparent btn-close-modal">X</button>
+                                <h1 className="text-center">Delete All Bookmarks?</h1>
+                                <div className="text-center">
+                                    <a href="#" className="btn-modal" onClick={this.deleteAllBookmarks}>
+                                        <h3 className="text-inline">Yes</h3>
+                                    </a>
+                                    <h3 className="text-inline">&nbsp;/&nbsp;</h3>
+                                    <a href="#" className="btn-modal" onClick={this.closeModal}>
+                                        <h3 className="text-inline">No</h3>
+                                    </a>
+                                </div>
+                            </Modal>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }

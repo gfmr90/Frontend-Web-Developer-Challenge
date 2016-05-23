@@ -31,6 +31,7 @@ export function initEnvironment() {
 
         window.onresize = () => {
             dispatch(changeWidthAndHeight(window.innerHeight, window.innerWidth));
+            dispatch(changeIsMobile(isMobile));
         };
     };
 }

@@ -16,10 +16,6 @@ import reducers from './reducers';
 import ReduxThunk from 'redux-thunk'
 import BookMarks from './containers/bookmarks'
 import Search from './containers/search_bar'
-import { SearchMeals } from './components/search_meals'
-import Foo from './components/Foo'
-import Bar from './components/Bar'
-import Home from './components/Home'
 import App from './containers/app'
 
 const store = createStore(
@@ -31,6 +27,11 @@ const store = createStore(
     )
 );
 persistStore(store);
+
+// Listen for route changes
+// browserHistory.listen(function(ev) {
+//     console.log('listen', ev.pathname);
+// });
 
 const history = syncHistoryWithStore(browserHistory, store);
 
