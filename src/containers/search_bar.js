@@ -42,7 +42,7 @@ class FoodSuggestions extends Component {
     }
     render() {
         const { value, suggestions, isLoading } = this.props;
-        //Underscore to filter out duplicate suggestion objects
+        //Lodash for filtering out duplicate suggestion objects
         const uSuggestions = _.uniqBy(suggestions, (s) => { return s.name; });
         const { onChange, getSuggestionValue, onSuggestionsUpdateRequested, renderSuggestion } = this;
         const inputProps = {

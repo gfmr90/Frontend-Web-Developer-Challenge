@@ -180,14 +180,6 @@ table {
     border-radius: 4px;
 }
 
-@media (min-width: 384px) {
-
-}
-
-@media (min-width: 576px) {
-
-}
-
 @media (min-width: 768px) {
     .react-autosuggest__input {
         width: 360px;
@@ -411,6 +403,7 @@ table {
 
 /* ---------------------------------------------- /*
  * Flexbox Grid System
+ * https://philipwalton.github.io/solved-by-flexbox/
 /* ---------------------------------------------- */
 
 .container {

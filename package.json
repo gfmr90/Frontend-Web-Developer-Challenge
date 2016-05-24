@@ -1,7 +1,7 @@
 {
-  "name": "react-hot-boilerplate",
+  "name": "holmusk-challenge",
   "version": "1.0.0",
-  "description": "Boilerplate for ReactJS project with hot code reloading",
+  "description": "holmusk-challenge",
   "scripts": {
     "start": "node server.js",
     "lint": "eslint src",
@@ -23,12 +23,12 @@
     "edit",
     "webpack"
   ],
-  "author": "Dan Abramov <dan.abramov@me.com> (http://github.com/gaearon)",
+  "author": "Gary Foo <gfmr90@gmail.com.com> (http://github.com/gfmr90)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gaearon/react-hot-boilerplate/issues"
+    "url": "https://github.com/gfmr90/Frontend-Web-Developer-Challenge/issues"
   },
-  "homepage": "https://github.com/gaearon/react-hot-boilerplate",
+  "homepage": "https://github.com/gfmr90/Frontend-Web-Developer-Challenge",
   "devDependencies": {
     "babel-cli": "^6.8.0",
     "babel-core": "^6.8.0",
